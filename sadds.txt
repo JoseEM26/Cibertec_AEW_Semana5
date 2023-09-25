@@ -1,3 +1,4 @@
+cd C:\Users\ADMIN\Pictures\ACTIVIDADES
 git add .
 
 git commit -m "MENSAJITO"
