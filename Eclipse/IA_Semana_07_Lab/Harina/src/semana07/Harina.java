@@ -75,6 +75,7 @@ public class Harina extends JFrame implements ActionListener {
 		contentPane.add(lblCantidad);
 
 		cboMarca = new JComboBox<String>();
+		cboMarca.addActionListener(this);
 		cboMarca.setModel(new DefaultComboBoxModel<String>(new String[] {"Blanca Flor", "Favorita", "Molitalia", "Nicolini"}));
 		cboMarca.setBounds(67, 8, 125, 20);
 		contentPane.add(cboMarca);
@@ -105,6 +106,9 @@ public class Harina extends JFrame implements ActionListener {
 
 	// Direcciona eventos de tipo ActionEvent
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == cboMarca) {
+			actionPerformedCboMarca(arg0);
+		}
 		if (arg0.getSource() == btnBorrar) {
 			actionPerformedBtnBorrar(arg0);
 		}
@@ -123,6 +127,46 @@ public class Harina extends JFrame implements ActionListener {
 
 	// Procesa la pulsación del botón Procesar
 	protected void actionPerformedBtnProcesar(ActionEvent arg0) {
-
-	}
+		
+		int cantidad, marca;
+		double impcom, impdes, imppag;
+		
+		cantidad = Integer.parseInt(txtCantidad.getText());
+		marca = cboMarca.getSelectedIndex();
+		
+		switch (marca) {
+		case 0:
+			impcom = cantidad * 5.85;
+			break;
+		case 1:
+			impcom = cantidad * 3.85;
+			break;
+		case 2:
+			impcom = cantidad * 3;
+			break;
+		default:
+			impcom = cantidad * 3.2;
+		}
+		
+		if (cantidad >= 12)
+			impdes = impcom * 0.11;
+		else if (cantidad >= 6 && cantidad < 12)
+			impdes = impcom * 0.09;
+		else if (cantidad >= 3 && cantidad < 6)
+			impdes = impcom * 0.07;
+		else
+			impdes = impcom * 0.05;
+		
+		imppag = impcom - impdes;
+	
+		txtS.setText("Datos" + "\n"); 
+		txtS.append("Importe de Compra \t: " + String.format("%,8.2f", impcom) + "\n"); 
+		txtS.append("Importe de Descuento \t: " + String.format("%,8.2f", impdes) + "\n"); 
+		txtS.append("Importe a Pagar \t\t: " + String.format("%,8.2f", imppag) + "\n"); 
+		
+		
+}
+	protected void actionPerformedCboMarca(ActionEvent arg0) {
+		
+  }
 }

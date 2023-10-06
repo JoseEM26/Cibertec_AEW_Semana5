@@ -123,6 +123,56 @@ public class Jabon extends JFrame implements ActionListener {
 
 	// Procesa la pulsación del botón Procesar
 	protected void actionPerformedBtnProcesar(ActionEvent arg0) {
+		
+		int marca, cantidad, lapiceros;
+		double precio, imppag, impdes, impcom;
+		
+		cantidad = Integer.parseInt(txtCantidad.getText());
+		marca = cboMarca.getSelectedIndex();
+		
+		switch (marca) {
+		case 0:
+			impcom = cantidad * 5.2;
+			break;
+		case 1:
+			impcom = cantidad * 8.2;
+			break;
+		case 2:
+			impcom = cantidad * 6.5;
+			break;
+		default:
+			impcom = cantidad * 7.4;
+		}
+		
+		if (cantidad >= 18)
+			impdes = impcom * 0.125;
+		else if (cantidad >= 12 && cantidad < 18)
+			impdes = impcom * 0.10;
+		else if (cantidad >= 6 && cantidad < 12)
+			impdes = impcom * 0.075;
+		else
+			impdes = impcom * 0;
+		
+		
+		if (cantidad < 12)
+			lapiceros = 2;
+		else if (cantidad >= 12 && cantidad < 24)
+			lapiceros = 4;
+		else if (cantidad >= 24 && cantidad < 36)
+			lapiceros = cantidad * 1;
+		else
+			lapiceros = cantidad * 2;
+		
+		imppag = impcom - impdes;
+		
+		txtS.setText("Datos" + "\n"); 
+		txtS.append("Importe de Compra \t:" + String.format("%,8.2f", impcom) + "\n"); 
+		txtS.append("Importe de Descuento \t:" + String.format("%,8.2f", impdes) + "\n"); 
+		txtS.append("Importe a Pagar \t\t:" + String.format("%,8.2f", imppag) + "\n"); 
+		txtS.append("Lapiceros de Obsequio \t: " + lapiceros + " lapiceros" + "\n");
+		
+		
+		
 
 	}
 }
