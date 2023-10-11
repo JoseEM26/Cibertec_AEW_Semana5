@@ -20,7 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import java.awt.Font;
 
-public class Golosina extends JFrame implements ActionListener {
+public class Golosina2 extends JFrame implements ActionListener {
 
 	// Declaración de variables
 	private static final long serialVersionUID = 9206324162700448001L;
@@ -45,7 +45,7 @@ public class Golosina extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Golosina frame = new Golosina();
+					Golosina2 frame = new Golosina2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +55,7 @@ public class Golosina extends JFrame implements ActionListener {
 	}
 
 	// Crea la GUI
-	public Golosina() {
+	public Golosina2() {
 		setTitle("Golosina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -208,7 +208,7 @@ public class Golosina extends JFrame implements ActionListener {
 		txtS.append("Importe de Compra \t:" + String.format("%,8.2f", impcom) + "\n"); 
 		txtS.append("Importe de Descuento \t:" + String.format("%,8.2f", impdes) + "\n"); 
 		txtS.append("Importe a Pagar \t\t:" + String.format("%,8.2f", imppag) + "\n"); 
-		txtS.append("Caramelos de Obsequio \t:" + caramelos + "caramelos" + "\n"); 	
+		txtS.append("Caramelos de Obsequio \t: " + caramelos + " caramelos" + "\n"); 	
 		
 	}
 

@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.graalvm.compiler.nodes.NodeView.Default;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
@@ -20,7 +23,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import java.awt.Font;
 
-public class Golosina extends JFrame implements ActionListener {
+public class Golosina3 extends JFrame implements ActionListener {
 
 	// Declaración de variables
 	private static final long serialVersionUID = 9206324162700448001L;
@@ -39,17 +42,15 @@ public class Golosina extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch (Throwable e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Golosina frame = new Golosina();
+					Golosina3 frame = new Golosina3();
 					frame.setVisible(true);
-				}
-				catch (Exception e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -57,7 +58,7 @@ public class Golosina extends JFrame implements ActionListener {
 	}
 
 	// Crea la GUI
-	public Golosina() {
+	public Golosina3() {
 		setTitle("Golosina");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -77,7 +78,8 @@ public class Golosina extends JFrame implements ActionListener {
 
 		cboMarca = new JComboBox<String>();
 		cboMarca.addActionListener(this);
-		cboMarca.setModel(new DefaultComboBoxModel<String>(new String[] { "Cream Cracker", "Chomp", "P\u00EDcaras", "Dona Pepa" }));
+		cboMarca.setModel(new DefaultComboBoxModel<String>(
+				new String[] { "Cream Cracker", "Chomp", "P\u00EDcaras", "Dona Pepa" }));
 		cboMarca.setBounds(100, 8, 100, 20);
 		contentPane.add(cboMarca);
 
@@ -103,7 +105,7 @@ public class Golosina extends JFrame implements ActionListener {
 		txtS = new JTextArea();
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		scpScroll.setViewportView(txtS);
-		
+
 		txtPrecio = new JTextField();
 		txtPrecio.setBounds(210, 9, 96, 19);
 		contentPane.add(txtPrecio);
@@ -131,44 +133,4 @@ public class Golosina extends JFrame implements ActionListener {
 		txtCantidad.requestFocus();
 	}
 
-	// Procesa la pulsación del botón Procesar
-	protected void actionPerformedBtnProcesar(ActionEvent arg0) {
-		
-		int cant, marca, cara;
-		double precio, descuento;
-		
-		marca = cboMarca.getSelectedIndex(); 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-	}
-	protected void actionPerformedCboMarca(ActionEvent arg0) {
-		
-		int valor = cboMarca.getSelectedIndex();
-		
-		switch (valor) {
-		case 0:
-			txtPrecio.setText(""+ 9.0);
-			break;
-		case 1:
-			txtPrecio.setText(""+ 7.4);
-			break;
-		case 2:
-			txtPrecio.setText(""+ 8.6);
-			break;
-		default:
-			txtPrecio.setText(""+ 10.6);
-			break;
-			}
-		
-		}
-		
-	}
+}
