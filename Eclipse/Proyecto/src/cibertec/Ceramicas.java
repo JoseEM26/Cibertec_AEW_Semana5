@@ -69,7 +69,10 @@ public class Ceramicas extends JFrame implements ActionListener {
 	public static int cantidadOptima = 10;
 	// Cuota diaria
 	public static double cuotaDiaria = 30000;
-	private JMenu mnNewMenu_2;
+	private JMenuItem mntmNewMenuItem_1;
+	private JMenuItem mntmNewMenuItem_2;
+	private JMenuItem mntmNewMenuItem;
+	private JMenuItem mntmNewMenuItem_4;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -97,69 +100,87 @@ public class Ceramicas extends JFrame implements ActionListener {
 		JMenu mnNewMenu = new JMenu("Archivo");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Salir");
-		mnNewMenu.add(mntmNewMenuItem);
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Salida");
+		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_1 = new JMenu("Mantenimiento");
 		menuBar.add(mnNewMenu_1);
 		
-		mnNewMenu_2 = new JMenu("Consultar cer\u00E1mico");
-		mnNewMenu_2.addActionListener(this);
-		mnNewMenu_1.add(mnNewMenu_2);
-		
 		JSeparator separator = new JSeparator();
 		mnNewMenu_1.add(separator);
 		
-		JMenu mnNewMenu_2_1 = new JMenu("Modificar cer\u00E1mico");
-		mnNewMenu_1.add(mnNewMenu_2_1);
+		mntmNewMenuItem_1 = new JMenuItem("Consultar ceramica");
+		mntmNewMenuItem_1.addActionListener(this);
+		mnNewMenu_1.add(mntmNewMenuItem_1);
+		
+		JSeparator separator_9 = new JSeparator();
+		mnNewMenu_1.add(separator_9);
+		
+		mntmNewMenuItem_2 = new JMenuItem("Modificar cer\u00E1mico");
+		mntmNewMenuItem_2.addActionListener(this);
+		mnNewMenu_1.add(mntmNewMenuItem_2);
+		
+		JSeparator separator_10 = new JSeparator();
+		mnNewMenu_1.add(separator_10);
+		
+		mntmNewMenuItem = new JMenuItem("Lista de Ceramicos");
+		mntmNewMenuItem.addActionListener(this);
+		mnNewMenu_1.add(mntmNewMenuItem);
 		
 		JSeparator separator_1 = new JSeparator();
 		mnNewMenu_1.add(separator_1);
 		
-		JMenu mnNewMenu_2_2 = new JMenu("Listar cer\u00E1micos");
-		mnNewMenu_1.add(mnNewMenu_2_2);
-		
 		JMenu mnNewMenu_1_1 = new JMenu("Venta");
 		menuBar.add(mnNewMenu_1_1);
-		
-		JMenu mnNewMenu_4 = new JMenu("Vender");
-		mnNewMenu_1_1.add(mnNewMenu_4);
 		
 		JSeparator separator_2 = new JSeparator();
 		mnNewMenu_1_1.add(separator_2);
 		
-		JMenu mnNewMenu_2_3 = new JMenu("Generar reportes");
-		mnNewMenu_1_1.add(mnNewMenu_2_3);
+		mntmNewMenuItem_4 = new JMenuItem("Vender");
+		mntmNewMenuItem_4.addActionListener(this);
+		mnNewMenu_1_1.add(mntmNewMenuItem_4);
+		
+		JSeparator separator_8 = new JSeparator();
+		mnNewMenu_1_1.add(separator_8);
+		
+		JMenuItem mntmNewMenuItem_4_1 = new JMenuItem("Generar Reportes");
+		mnNewMenu_1_1.add(mntmNewMenuItem_4_1);
 		
 		JMenu mnNewMenu_1_2 = new JMenu("Configuracion");
 		menuBar.add(mnNewMenu_1_2);
 		
-		JMenu mnNewMenu_2_4 = new JMenu("Configurar descuentos");
-		mnNewMenu_1_2.add(mnNewMenu_2_4);
-		
 		JSeparator separator_3 = new JSeparator();
 		mnNewMenu_1_2.add(separator_3);
 		
-		JMenu mnNewMenu_2_5 = new JMenu("Configurar obsequios");
-		mnNewMenu_1_2.add(mnNewMenu_2_5);
+		JMenuItem mntmNewMenuItem_4_3 = new JMenuItem("Configurar descuentos");
+		mnNewMenu_1_2.add(mntmNewMenuItem_4_3);
 		
 		JSeparator separator_4 = new JSeparator();
 		mnNewMenu_1_2.add(separator_4);
 		
-		JMenu mnNewMenu_2_6 = new JMenu("Configurar cantidad \u00F3ptima");
-		mnNewMenu_1_2.add(mnNewMenu_2_6);
-		
 		JSeparator separator_5 = new JSeparator();
 		mnNewMenu_1_2.add(separator_5);
 		
-		JMenu mnNewMenu_2_7 = new JMenu("Configurar cuota diaria");
-		mnNewMenu_1_2.add(mnNewMenu_2_7);
+		JMenuItem mntmNewMenuItem_4_4 = new JMenuItem("Configurar obsequios");
+		mnNewMenu_1_2.add(mntmNewMenuItem_4_4);
+		
+		JSeparator separator_7 = new JSeparator();
+		mnNewMenu_1_2.add(separator_7);
+		
+		JMenuItem mntmNewMenuItem_4_5 = new JMenuItem("Configurar cantidad \u00F3ptima");
+		mnNewMenu_1_2.add(mntmNewMenuItem_4_5);
+		
+		JSeparator separator_6 = new JSeparator();
+		mnNewMenu_1_2.add(separator_6);
+		
+		JMenuItem mntmNewMenuItem_4_2 = new JMenuItem("Configurar cuota diaria");
+		mnNewMenu_1_2.add(mntmNewMenuItem_4_2);
 		
 		JMenu mnNewMenu_1_3 = new JMenu("Ventas");
 		menuBar.add(mnNewMenu_1_3);
 		
-		JMenu mnNewMenu_2_8 = new JMenu("Acerca de Tienda");
-		mnNewMenu_1_3.add(mnNewMenu_2_8);
+		JMenuItem mntmNewMenuItem_4_6 = new JMenuItem("Acerca de Tienda");
+		mnNewMenu_1_3.add(mntmNewMenuItem_4_6);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -167,14 +188,36 @@ public class Ceramicas extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == mnNewMenu_2) {
-			actionPerformedMnNewMenu_3(e);
+		if (e.getSource() == mntmNewMenuItem_4) {
+			actionPerformedMntmNewMenuItem_4(e);
+		}
+		if (e.getSource() == mntmNewMenuItem) {
+			actionPerformedMntmNewMenuItem(e);
+		}
+		if (e.getSource() == mntmNewMenuItem_2) {
+			actionPerformedMntmNewMenuItem_2(e);
+		}
+		if (e.getSource() == mntmNewMenuItem_1) {
+			actionPerformedMntmNewMenuItem_1(e);
 		}
 	}
-	protected void actionPerformedMnNewMenu_3(ActionEvent e) {
+	protected void actionPerformedMntmNewMenuItem_1(ActionEvent e) {
 		consultaCeramica consultaCeramicap=new consultaCeramica();
 		consultaCeramicap.setVisible(true);
 		
 		
+	}
+	protected void actionPerformedMntmNewMenuItem_2(ActionEvent e) {
+		listarCeramicas listarCeramicasp=new listarCeramicas();
+		listarCeramicasp.setVisible(true);
+		
+	}
+	protected void actionPerformedMntmNewMenuItem(ActionEvent e) {
+		modificarCeramica modificarCeramicap=new modificarCeramica();
+		modificarCeramicap.setVisible(true);
+	}
+	protected void actionPerformedMntmNewMenuItem_4(ActionEvent e) {
+		vender venderp=new vender();
+		venderp.setVisible(true);
 	}
 }

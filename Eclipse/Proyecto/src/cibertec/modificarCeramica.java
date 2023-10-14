@@ -4,14 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public class consultaCeramica extends JDialog {
+public class modificarCeramica extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtPrecio;
@@ -25,7 +25,7 @@ public class consultaCeramica extends JDialog {
 	 */
 	public static void main(String[] args) {
 		try {
-			consultaCeramica dialog = new consultaCeramica();
+			modificarCeramica dialog = new modificarCeramica();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -36,7 +36,7 @@ public class consultaCeramica extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public consultaCeramica() {
+	public modificarCeramica() {
 		setTitle("Consulta Ceramica");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -68,37 +68,44 @@ public class consultaCeramica extends JDialog {
 		lblContenido.setBounds(10, 218, 87, 14);
 		contentPanel.add(lblContenido);
 		
-		JComboBox cbmModelo = new JComboBox();
-		cbmModelo.setBounds(107, 7, 203, 22);
-		contentPanel.add(cbmModelo);
+		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.setBounds(335, 7, 89, 23);
+		contentPanel.add(btnCerrar);
+		
+		JButton btnGrabar = new JButton("Grabar");
+		btnGrabar.setBounds(335, 45, 89, 23);
+		contentPanel.add(btnGrabar);
 		
 		txtPrecio = new JTextField();
-		txtPrecio.setBounds(107, 46, 203, 20);
+		txtPrecio.setBounds(107, 46, 218, 20);
 		contentPanel.add(txtPrecio);
 		txtPrecio.setColumns(10);
 		
+		JComboBox cboModelo = new JComboBox();
+		cboModelo.setBounds(107, 7, 218, 22);
+		contentPanel.add(cboModelo);
+		
 		txtAncho = new JTextField();
-		txtAncho.setColumns(10);
-		txtAncho.setBounds(107, 88, 203, 20);
+		txtAncho.setBounds(107, 88, 218, 20);
 		contentPanel.add(txtAncho);
+		txtAncho.setColumns(10);
 		
 		txtLargo = new JTextField();
 		txtLargo.setColumns(10);
-		txtLargo.setBounds(107, 128, 203, 20);
+		txtLargo.setBounds(107, 128, 218, 20);
 		contentPanel.add(txtLargo);
 		
 		txtEspesor = new JTextField();
 		txtEspesor.setColumns(10);
-		txtEspesor.setBounds(107, 171, 203, 20);
+		txtEspesor.setBounds(107, 171, 218, 20);
 		contentPanel.add(txtEspesor);
 		
 		txtContenido = new JTextField();
 		txtContenido.setColumns(10);
-		txtContenido.setBounds(107, 215, 203, 20);
+		txtContenido.setBounds(107, 215, 218, 20);
 		contentPanel.add(txtContenido);
 		
-		JButton btnCerrar = new JButton("Cerrar");
-		btnCerrar.setBounds(335, 7, 89, 23);
-		contentPanel.add(btnCerrar);
+			
+		
 	}
 }

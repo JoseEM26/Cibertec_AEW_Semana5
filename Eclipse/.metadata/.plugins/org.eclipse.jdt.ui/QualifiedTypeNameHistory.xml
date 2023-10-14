@@ -2,8 +2,11 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-    <fullyQualifiedTypeName name="java.lang.Double"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="cibertec.complemento1"/>
     <fullyQualifiedTypeName name="cibertec.consultaCeramica"/>
+    <fullyQualifiedTypeName name="cibertec.listarCeramicas"/>
+    <fullyQualifiedTypeName name="cibertec.modificarCeramica"/>
+    <fullyQualifiedTypeName name="cibertec.vender"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
 </qualifiedTypeNameHistroy>
