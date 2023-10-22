@@ -20,6 +20,7 @@ header h1{
 header img{
     width: 100%;
     vertical-align: bottom;
+    
 }
 nav{
     background-color: yellow;
@@ -66,7 +67,7 @@ section{
 
 }
 section figure{
-    width:30%;
+    width:25%;
     margin: 10px;
     border: solid blue;
 
