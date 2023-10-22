@@ -21,6 +21,8 @@ public class vender extends JDialog implements ActionListener {
 	private JTextField txtCantidad;
 	private JComboBox cboModelo;
 	private JButton btnVender;
+	private JTextArea txtS;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -61,6 +63,7 @@ public class vender extends JDialog implements ActionListener {
 		getContentPane().add(cboModelo);
 		
 		txtPrecio = new JTextField();
+		txtPrecio.setEditable(false);
 		txtPrecio.setBounds(77, 36, 149, 20);
 		getContentPane().add(txtPrecio);
 		txtPrecio.setColumns(10);
@@ -75,7 +78,8 @@ public class vender extends JDialog implements ActionListener {
 		btnVender.setBounds(323, 7, 89, 23);
 		getContentPane().add(btnVender);
 		
-		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(323, 35, 89, 23);
 		getContentPane().add(btnCerrar);
 		
@@ -83,10 +87,13 @@ public class vender extends JDialog implements ActionListener {
 		scrollPane.setBounds(20, 92, 392, 143);
 		getContentPane().add(scrollPane);
 		
-		JTextArea txtS = new JTextArea();
+		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
 		if (e.getSource() == btnVender) {
 			actionPerformedBtnVender(e);
 		}
@@ -116,10 +123,26 @@ public class vender extends JDialog implements ActionListener {
 		
 		}
 	}
+	
 	protected void actionPerformedBtnVender(ActionEvent e) {
-		int modelo ,cantidad,obsequio;
-		double precio,impCompra,impDescuento,impPagar;
-		String tipoObsequio;
+		int cantidad,uniObse;
+		double precio0=Ceramicas.precio0;
+		double precio1=Ceramicas.precio1;
+		double precio2=Ceramicas.precio2;
+		double precio3=Ceramicas.precio3;
+		double precio4=Ceramicas.precio4;    
+		double impCompra,impDesct,impPago;
+		double porcentaje1=Ceramicas.porcentaje1;
+		double porcentaje2=Ceramicas.porcentaje2;
+		double porcentaje3=Ceramicas.porcentaje3;
+		double porcentaje4=Ceramicas.porcentaje4;
+		double cuotaDiario=Ceramicas.cuotaDiaria;
+		String tipoObsequio=Ceramicas.tipoObsequio;
+		int obsequioCantidad1=Ceramicas.obsequioCantidad1;
+		int obsequioCantidad2=Ceramicas.obsequioCantidad2;
+		int obsequioCantidad3=Ceramicas.obsequioCantidad3;
+		int modelo,obsequio;
+		
 		
 		//Entrada
 		modelo=cboModelo.getSelectedIndex();
@@ -135,71 +158,80 @@ public class vender extends JDialog implements ActionListener {
 		else if(modelo==2) 
 			impCompra=cantidad*Double.parseDouble(txtPrecio.getText());
 		
+		else if(modelo==3) 
+			impCompra=cantidad*Double.parseDouble(txtPrecio.getText());
+		
 		else 
 			impCompra=cantidad*Double.parseDouble(txtPrecio.getText());
 		
 		//Proceso del Descuento
 		switch(cantidad) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
+		case 1: 
+		case 2: 
+		case 3: 
+		case 4: 
+		case 5: 
+			impDesct=impCompra*(porcentaje1/100);
+			break;
+		case 6: 
+		case 7: 
+		case 8: 
+		case 9: 
+		case 10: 
+			impDesct=impCompra*(porcentaje2/100);
+			break;	
+		case 11: 
+		case 12: 
+		case 13: 
+		case 14: 
+		case 15: 
+			impDesct=impCompra*(porcentaje3/100);
+			break;
 			
+		default:
+			impDesct=impCompra*(porcentaje4/100);
+			break;
+			
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+       //obseequio
+		switch(cantidad) {
+		case 1: 
+		case 2: 
+		case 3: 
+		case 4: 
+		case 5: 
+			obsequio=obsequioCantidad1;
+			break;
+		case 6: 
+		case 7: 
+		case 8: 
+		case 9: 
+		case 10: 
+			obsequio=obsequioCantidad2;
+			break;
+			
+		default:
+			obsequio=obsequioCantidad3;
+			break;
 		
 		}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		impPago=impCompra-impDesct;
+		
+	//SALIDAAA;;;
+		txtS.setText("BOLETA DE VENTA"+"\n\n");
+		txtS.append("Modelo\t\t\t:"+ cboModelo.getSelectedIndex() + "\n");
+		txtS.append("Precio\t\t\t:"+ Double.parseDouble(txtPrecio.getText()) + "\n");
+		txtS.append("Cantidad Adquirida\t\t:"+ cantidad + "\n");
+		txtS.append("Importe De Compra\t\t:"+ String.format("%,8.2f",impCompra) + "\n");
+		txtS.append("Importe de Descuento\t\t:"+ String.format("%,8.2f",impDesct) + "\n");
+		txtS.append("Importe de Pagar\t\t:"+ String.format("%,8.2f",impPago) + "\n");
+		txtS.append("Tipo de obsequio\t\t:"+ "Lapiceros" + "\n");
+		txtS.append("Unidades obsequiadas\t\t:"+ obsequio + "\n");
 			
 			
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
 	}
 }

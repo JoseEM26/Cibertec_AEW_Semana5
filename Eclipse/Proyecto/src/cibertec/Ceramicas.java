@@ -73,6 +73,7 @@ public class Ceramicas extends JFrame implements ActionListener {
 	private JMenuItem mntmNewMenuItem_2;
 	private JMenuItem mntmNewMenuItem;
 	private JMenuItem mntmNewMenuItem_4;
+	private JMenuItem mntmNewMenuItem_3;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -100,7 +101,8 @@ public class Ceramicas extends JFrame implements ActionListener {
 		JMenu mnNewMenu = new JMenu("Archivo");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Salida");
+		mntmNewMenuItem_3 = new JMenuItem("Salida");
+		mntmNewMenuItem_3.addActionListener(this);
 		mnNewMenu.add(mntmNewMenuItem_3);
 		
 		JMenu mnNewMenu_1 = new JMenu("Mantenimiento");
@@ -188,6 +190,9 @@ public class Ceramicas extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == mntmNewMenuItem_3) {
+			actionPerformedMntmNewMenuItem_3(e);
+		}
 		if (e.getSource() == mntmNewMenuItem_4) {
 			actionPerformedMntmNewMenuItem_4(e);
 		}
@@ -219,5 +224,9 @@ public class Ceramicas extends JFrame implements ActionListener {
 	protected void actionPerformedMntmNewMenuItem_4(ActionEvent e) {
 		vender venderp=new vender();
 		venderp.setVisible(true);
+	}
+	//Boton para salir o cerrar el programa
+	protected void actionPerformedMntmNewMenuItem_3(ActionEvent e) {
+		dispose();
 	}
 }
