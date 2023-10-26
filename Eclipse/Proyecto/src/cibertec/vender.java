@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -41,6 +42,7 @@ public class vender extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public vender() {
+		setTitle("Vender");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
@@ -230,8 +232,8 @@ public class vender extends JDialog implements ActionListener {
 		txtS.append("Unidades obsequiadas\t\t:"+ obsequio + "\n");
 			
 			
-		
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
 	}
 }

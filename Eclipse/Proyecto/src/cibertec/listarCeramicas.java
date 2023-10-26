@@ -34,6 +34,7 @@ public class listarCeramicas extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public listarCeramicas() {
+		setTitle("Consultar ceramica");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		
@@ -44,15 +45,15 @@ public class listarCeramicas extends JDialog implements ActionListener {
 		txtS = new JTextArea();
 		scrollPane.setViewportView(txtS);
 		
-		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(107, 232, 89, 23);
-		getContentPane().add(btnCerrar);
-		
 		btnListar = new JButton("Listar");
 		btnListar.addActionListener(this);
 		btnListar.setBounds(234, 232, 89, 23);
 		getContentPane().add(btnListar);
+		
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(96, 232, 89, 23);
+		getContentPane().add(btnCerrar);
 	}
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar) {
@@ -155,6 +156,8 @@ public class listarCeramicas extends JDialog implements ActionListener {
 		
 		
 	}
-	protected void actionPerformedBtnCerrar(ActionEvent e) {	
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+	dispose();
 	}
+	
 }

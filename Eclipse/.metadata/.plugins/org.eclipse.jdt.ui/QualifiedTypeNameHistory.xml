@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="java.lang.Double"/>
     <fullyQualifiedTypeName name="cibertec.Ceramicas"/>
     <fullyQualifiedTypeName name="cibertec.vender"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>
