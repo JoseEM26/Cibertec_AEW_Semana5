@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\T1BL\IA_Semana_07_Lab\.metadata\.plugins\org.eclipse.jdt.core
-1483447768.index
-3084555955.index
-3558735526.index
