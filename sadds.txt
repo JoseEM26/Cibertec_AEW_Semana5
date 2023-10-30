@@ -1,4 +1,4 @@
-cd C:\Users\ADMIN\Pictures\ACTIVIDADES
+cd C:\Users\ADMIN\Pictures\Cibertec
 git add .
 
 git commit -m "MENSAJITO"
