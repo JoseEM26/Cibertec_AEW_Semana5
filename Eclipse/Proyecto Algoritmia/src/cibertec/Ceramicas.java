@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -104,6 +105,10 @@ public class Ceramicas extends JFrame implements ActionListener {
 	public static String Cprcn3;
 	public static String Cprcn4;
 	public static String Cprcn5;
+	//Comparación de cajas vendidas con la cantidad óptima
+	public static double precioMenorr;
+	public static double precioMayor;
+	public static double precioMedioo;
 	
 	private JMenuItem mntmNewMenuItem_1;
 	private JMenuItem mntmNewMenuItem_2;
@@ -294,7 +299,13 @@ public class Ceramicas extends JFrame implements ActionListener {
 	}
 	//Boton para salir o cerrar el programa
 	protected void actionPerformedMntmNewMenuItem_3(ActionEvent e) {
-		dispose();
+		int Salir = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog (null,"Quiere Salir de la Pagina??" ," Confirmar",Salir,3);
+        if (Salir == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Gracias por su preferencia");
+        } else if (Salir == JOptionPane.NO_OPTION)
+            System.exit(0);
+        System.exit(0);
 	}
 	protected void mntmNewMenuItem_4_5ActionPerformed(ActionEvent e) {
 		ConCantOptima optima=new ConCantOptima();

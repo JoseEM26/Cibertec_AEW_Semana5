@@ -89,6 +89,11 @@ public class ConObsequios extends JDialog {
 		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnCancelarActionPerformed(e);
+			}
+		});
 		btnCancelar.setBounds(335, 29, 89, 23);
 		getContentPane().add(btnCancelar);
 	}
@@ -103,5 +108,8 @@ public class ConObsequios extends JDialog {
 	   
 	   
 	   
+	}
+	protected void btnCancelarActionPerformed(ActionEvent e) {
+		setVisible(false);
 	}
 }

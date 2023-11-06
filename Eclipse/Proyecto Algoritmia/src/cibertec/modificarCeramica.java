@@ -143,8 +143,13 @@ public class modificarCeramica extends JDialog implements ActionListener {
 		    Ceramicas.espesor3=Double.parseDouble(txtEspesor.getText());
 		    Ceramicas.contenido3=Integer.parseInt(txtContenido.getText());
 		    break;   
-		
-		
+		default:
+			Ceramicas.precio4= Double.parseDouble(txtPrecio.getText());
+		    Ceramicas.ancho4=Double.parseDouble(txtAncho.getText());
+		    Ceramicas.largo4=Double.parseDouble(txtLargo.getText());
+		    Ceramicas.espesor4=Double.parseDouble(txtEspesor.getText());
+		    Ceramicas.contenido4=Integer.parseInt(txtContenido.getText());
+		    break;  
 		
 		
 		
@@ -245,6 +250,6 @@ public class modificarCeramica extends JDialog implements ActionListener {
 		}	
 }
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-		
+		setVisible(false);
 	}
 }

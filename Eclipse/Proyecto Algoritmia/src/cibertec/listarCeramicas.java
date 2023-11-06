@@ -99,6 +99,13 @@ public class listarCeramicas extends JDialog implements ActionListener {
 		Imprimir("Espesor(cm)\t :"+Ceramicas.espesor3);
 		Imprimir("Contenido\t :"+Ceramicas.contenido3);
 		Imprimir("");
+		Imprimir("Modelo\t :"+Ceramicas.modelo4);
+		Imprimir("Precio\t :"+Ceramicas.precio4);
+		Imprimir("Ancho(cm)\t :"+Ceramicas.ancho4);
+		Imprimir("largo(cm)\t :"+Ceramicas.largo4);
+		Imprimir("Espesor(cm)\t :"+Ceramicas.espesor4);
+		Imprimir("Contenido\t :"+Ceramicas.contenido4);
+		Imprimir("");
 	
 	}
 	protected void actionPerformedBtnListar(ActionEvent e) {	
@@ -106,6 +113,6 @@ public class listarCeramicas extends JDialog implements ActionListener {
 		
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-	dispose();
+		setVisible(false);
 	}
 }

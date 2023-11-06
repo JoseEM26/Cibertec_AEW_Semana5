@@ -59,6 +59,11 @@ public class ConCantOptima extends JDialog {
 		}
 		{
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					btnCancelarActionPerformed(e);
+				}
+			});
 			btnCancelar.setBounds(335, 33, 89, 23);
 			getContentPane().add(btnCancelar);
 		}
@@ -66,5 +71,8 @@ public class ConCantOptima extends JDialog {
 
 	protected void btnAceptarActionPerformed(ActionEvent e) {
 		Ceramicas.cantidadOptima=Integer.parseInt(txtCAntidadIprtima.getText());
+	}
+	protected void btnCancelarActionPerformed(ActionEvent e) {
+		setVisible(false);
 	}
 }

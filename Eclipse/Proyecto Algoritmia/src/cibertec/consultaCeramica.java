@@ -175,5 +175,6 @@ public class consultaCeramica extends JDialog implements ActionListener {
 				
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
+		setVisible(false);
 	}
 }

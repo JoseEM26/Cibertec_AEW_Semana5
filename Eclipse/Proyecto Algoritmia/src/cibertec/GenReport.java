@@ -149,12 +149,61 @@ public class GenReport extends JDialog {
 			
 		}
 		
+		void salidaEstadísticasobreelprecio(double pMayor,double pMedio,double pMenor) {
+			txtS.setText("ESTADÍSTICA SOBRE EL PRECIO");
+			Imprimir("");Imprimir("");
+			Imprimir("Precio promedio :S/."+String.format("%,8.2f",pMedio));
+			Imprimir("Precio menor \t:S/."+String.format("%,8.2f",pMenor));
+			Imprimir("Precio mayor \t:S/."+String.format("%,8.2f",pMayor));
+			
+		}
+	
 		
 		
 		
-		
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////				
 			public void actionPerformed(ActionEvent e) {
+				
+
+	//Calcular los precio			
+				double precioMayor;
+					if(Ceramicas.precio0<Ceramicas.precio1 && Ceramicas.precio0<Ceramicas.precio2&& Ceramicas.precio0<Ceramicas.precio3&& Ceramicas.precio0<Ceramicas.precio4) {
+						precioMayor=Ceramicas.precio0;	
+					}
+					else if(Ceramicas.precio1<Ceramicas.precio2 && Ceramicas.precio1<Ceramicas.precio3&& Ceramicas.precio1<Ceramicas.precio4&& Ceramicas.precio1<Ceramicas.precio0) {
+						precioMayor=Ceramicas.precio1;	
+					}
+					else if(Ceramicas.precio2<Ceramicas.precio3 && Ceramicas.precio2<Ceramicas.precio4&& Ceramicas.precio2<Ceramicas.precio0&& Ceramicas.precio2<Ceramicas.precio1) {
+						precioMayor=Ceramicas.precio2;	
+					}
+					else if(Ceramicas.precio3<Ceramicas.precio4 && Ceramicas.precio3<Ceramicas.precio0&& Ceramicas.precio3<Ceramicas.precio1&& Ceramicas.precio3<Ceramicas.precio2) {
+						precioMayor=Ceramicas.precio3;	
+					}
+					else 
+						precioMayor=Ceramicas.precio4;
+					
+				
+				double precioMenor;
+					if(Ceramicas.precio0>Ceramicas.precio1 && Ceramicas.precio0>Ceramicas.precio2&& Ceramicas.precio0>Ceramicas.precio3&& Ceramicas.precio0>Ceramicas.precio4) {
+						precioMenor=Ceramicas.precio0;	
+					}
+					else if(Ceramicas.precio1>Ceramicas.precio2 && Ceramicas.precio1>Ceramicas.precio3&& Ceramicas.precio1>Ceramicas.precio4&& Ceramicas.precio1>Ceramicas.precio0) {
+						precioMenor=Ceramicas.precio1;	
+					}
+					else if(Ceramicas.precio2>Ceramicas.precio3 && Ceramicas.precio2>Ceramicas.precio4&& Ceramicas.precio2>Ceramicas.precio0&& Ceramicas.precio2>Ceramicas.precio1) {
+						precioMenor=Ceramicas.precio2;	
+					}
+					else if(Ceramicas.precio3>Ceramicas.precio4 && Ceramicas.precio3>Ceramicas.precio0&& Ceramicas.precio3>Ceramicas.precio1&& Ceramicas.precio3>Ceramicas.precio2) {
+						precioMenor=Ceramicas.precio3;	
+					}
+					else 
+						precioMenor=Ceramicas.precio3;	
+					
+			
+				double PrecioMedio;
+					PrecioMedio=(Ceramicas.precio0+Ceramicas.precio2+Ceramicas.precio1+Ceramicas.precio3+Ceramicas.precio4)/5;	
+				
+			
 				
 			int reporte=cboReporte.getSelectedIndex();
 			switch(reporte) {
@@ -166,7 +215,12 @@ public class GenReport extends JDialog {
 				break;
 			case 2:
 				SalidaComparacionDeCajasVendaidas();
+				break;
+			case 3:
+				salidaEstadísticasobreelprecio(precioMayor, PrecioMedio, precioMenor);
+				break;
 			}
+		
 			
 			
 			
@@ -180,6 +234,11 @@ public class GenReport extends JDialog {
 		getContentPane().add(cboReporte);
 		
 		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnCerrarActionPerformed(e);
+			}
+		});
 		btnCerrar.setBounds(628, 11, 89, 23);
 		getContentPane().add(btnCerrar);
 		
@@ -191,4 +250,6 @@ public class GenReport extends JDialog {
 		txtS.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		scrollPane.setViewportView(txtS);
 	}
+	protected void btnCerrarActionPerformed(ActionEvent e) {
+		setVisible(false);}
 }

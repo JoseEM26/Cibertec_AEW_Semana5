@@ -381,6 +381,6 @@ public class vender extends JDialog implements ActionListener {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-		dispose();
+		setVisible(false);
 	}
 }
